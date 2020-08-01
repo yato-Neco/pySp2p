@@ -3,7 +3,6 @@ def btn_click():
     msg = txt.get()
     client.main(msg)
 
-import sys
 import prints
 import client
 import tkinter
