@@ -1,6 +1,6 @@
 import socket
 
-def main(msg):
+def client(msg):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         host = "127.0.0.1"
         port = 50007
@@ -12,3 +12,5 @@ def main(msg):
 
         data = s.recv(buffa)
         print(repr(data.decode('unicode-escape')))
+
+        return

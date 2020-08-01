@@ -1,13 +1,11 @@
 def btn_click():
     msg = b"123"
     msg = txt.get()
-    client.main(msg)
+    client.client(msg)
 
-import prints
 import client
 import tkinter
 from tkinter import ttk
-
 #メインウィンドウ
 main_win = tkinter.Tk()
 main_win.title("test")
