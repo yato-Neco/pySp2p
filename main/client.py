@@ -1,16 +1,15 @@
 import socket
 
-def client(msg):
+def client(msg, setting):
+    host2 = str(msg)
+    port1 = 80
+    buffa = 1024
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        host = "127.0.0.1"
-        port = 50007
-        buffa = 1024 # ネットワークのバッファサイズ
+         # ネットワークのバッファサイズ
             #サーバ指定
-        s.connect((host, port))
+        s.connect((host2, port1))
             #サーバーにメッセージ送信
-        s.sendall(msg.encode('unicode-escape'))
+        s.sendall(setting.encode('unicode-escape'))
 
         data = s.recv(buffa)
         print(repr(data.decode('unicode-escape')))
-
-        return

@@ -1,14 +1,18 @@
 import socket
 
 def server():
+    host = socket.gethostname()
+    print(host)
+    ip = socket.gethostbyname(host)
+    print(ip)
     #AFはIPv4
     #SOCK_STREAMはTCP/IP
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        host = "127.0.0.1"
-        port = 50007
+        host2 = ip
+        port2 = 80
         buffa = 1024 # ネットワークのバッファサイズ
         #IPとport指定
-        s.bind((host, port))
+        s.bind((host2, port2))
         #接続
         s.listen(1)
         #接続待機
@@ -24,6 +28,4 @@ def server():
                     print("data : {}, addr {}".format(data.decode('unicode-escape'), addr))
                         #クライアントにデータを返す
                     conn.sendall(b"server: " + data)
-
-
 server()
